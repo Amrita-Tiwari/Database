@@ -3,21 +3,24 @@
  
 1) . Assume each salesperson has a 12% commission. Write a query on the orders table that will produce the order number,
               the salesperson number, and the amount of the salesperson’s commission for that order. 
-   
-               mysql> select onum,snum,amt*12/100 as comm from orders;
+             
+               mysql> select onum,snum,amt*0.12 as comm from orders;
+                                       (or)
+               mysql> select orders.onum, salespeople.snum, orders.amt*0.12 from orders, salespeople where orders.snum=salespeople.snum;
+
                                                 onum          snum             comm 
                                        ---------------------------------------------------------
-                                                3001             1007             2.242800 
-                                                3003             1001            92.062800 
-                                                3003             1001            92.062800 
-                                                3002             1004            228.011997 
-                                                3005             1002            619.254023 
-                                                3006             1007            131.779204 
-                                                3009             1003            205.587598 
-                                                3007             1002            9.090000 
-                                                3008             1001            566.760000 
-                                                3010             1002            157.193994 
-                                                3011             1001            1187.025586 
+                                                3001             1007             2.24 
+                                                3003             1001            92.06
+                                                3003             1001            92.06
+                                                3002             1004            228.01 
+                                                3005             1002            619.25
+                                                3006             1007            131.77
+                                                3009             1003            205.58
+                                                3007             1002            9.09
+                                                3008             1001            566.76 
+                                                3010             1002            157.19
+                                                3011             1001            1187.02 
 
 2) .  Write a query on the Customers table that will find the highest rating in each city. Put the output in this form: 
          For the city (city), the highest rating is : (rating). 
@@ -47,11 +50,11 @@
     
  
 4) Write a query that totals the orders for each day and places the results in descending order. 
-  mysql> select  odate , count(odate) as 'total orders' from orders group by odate ;
+  mysql> select  odate , count(odate) as 'total orders' from orders group by odate order by 2 desc ;
 
                                              odate                      total orders 
                                     -----------------------------------------------------------
-                                          1990-10-03                    6 
+                                          1990-10-03                    5 
                                           1990-10-04                    2 
-                                          1990-10-05                    1 
-                                          1990-10-06                    2 
+                                          1990-10-05                    2
+                                          1990-10-06                    1 
