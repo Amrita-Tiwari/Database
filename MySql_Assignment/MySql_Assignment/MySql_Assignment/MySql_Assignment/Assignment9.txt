@@ -1,0 +1,72 @@
+                                                                                                         Assignment – 9
+                                                                                        Querying Multiple Tables at Once.
+
+1) Write a query that lists each order number followed by the name of the customer
+who made the order.
+   mysql> select orders.onum,customers.cname from orders,customers where orders.cnum = customers.cnum;
+
+                                            onum              cname     
+                                   -------------------------------------
+                                           3001               cisneros 
+                                           3003               hoffman  
+                                           3002                pereira  
+                                           3005                liu      
+                                           3006               cisneros  
+                                           3009               giovanni 
+                                           3007               grass    
+                                           3008              clemens  
+                                           3010              grass    
+                                           3011             clemens  
+
+2) Write a query that gives the names of both the salesperson and the customer for
+     each order along with the order number.
+     mysql> select  sname,cname,onum from salespeople,customers,orders where orders.snum = customers.snum and orders.snum = salespeople.snum ;
+                                          sname           cname           onum 
+                                       ----------------------------------------------
+                                          rifkin            cisneros         3001
+                                          peel              hoffman         3003 
+                                          peel              clemens          3003 
+                                          motika         pereira            3002 
+                                          serres           liu                    3005 
+                                          serres           grass                3005 
+                                          rifkin           cisneros           3006 
+                                          axelrod        giovanni         3009 
+                                          serres           liu                    3007 
+                                          serres           grass                3007 
+                                          peel              hoffman          3008 
+                                          peel              clemens           3008 
+                                          serres           liu                     3010 
+                                          serres           grass                3010 
+                                          peel              hoffman          3011 
+                                          peel              clemens           3011 
+
+
+
+
+3) Write a query that produces all customers serviced by salespeople with a commission above 12%. Output the customer’s name,
+    the salesperson’s name, and the salesperson’s rate of commission.
+        mysql> select cname,sname,comm from salespeople ,customers where salespeople.snum = customers.snum and comm > 0.12;
+
+                         cname         sname       comm 
+                       -----------------------------------------------
+                         liu                 serres          0.13  
+                         grass            serres          0.13 
+                         cisneros      rifkin           0.15 
+
+        
+4) Write a query that calculates the amount of the salesperson’s commission on each order by a customer with a rating above 100.
+  mysql> select amt*comm as 'salesperson commision' ,cname from salespeople,customers,orders where 
+                   salespeople.snum = customers.snum and salespeople.snum = orders.snum and rating > 100;
+
+              salesperson commision             cname    
+       ------------------------------------------------------------------
+                                2.80                              cisneros 
+                                670.86                          liu       
+                                670.86                          grass    
+                               164.72                          cisneros 
+                               171.32                          giovanni 
+                               9.85                               liu      
+                               9.85                               grass    
+                              170.29                           liu      
+                              170.29                           grass    
+
