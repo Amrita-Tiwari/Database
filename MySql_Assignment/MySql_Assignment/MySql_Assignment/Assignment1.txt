@@ -45,7 +45,6 @@ create table orders(
 );
 insert into orders values(3001,18.69,'1990-10-03',2008,1007);
 insert into orders values(3003,767.19,'1990-10-03',2001,1001);
-insert into orders values(3003,767.19,'1990-10-03',2001,1001);
 insert into orders values(3002,1900.10,'1990-10-03',2007,1004);
 insert into orders values(3005,5160.45,'1990-10-03',2003,1002);
 insert into orders values(3006,1098.16,'1990-10-03',2008,1007);
