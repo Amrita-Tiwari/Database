@@ -1,0 +1,28 @@
+                                                                                                            Assignment – 19 
+                                                                                                                 Views 
+ 
+1).  Create a view that shows all of the customers who have the highest ratings. 
+     
+        mysql>create view v_high_rating 
+                     as
+                  select cname , rating 'highest Rating'from customers where rating in(select max(rating) from customers);
+       mysql>select * from v_high_rating;
+ 
+2) Create a view that shows the number of salespeople in each city. 
+       mysql>create view view_salespeople_in_city 
+                      as 
+                   select count(sname) , city from salespeople group by city;
+ 
+3) Create a view that shows the average and total orders for each salesperson after his or her name. Assume all names are unique. 
+        mysql> create view v_sname_count_orders as select sname, count(orders.snum) from salespeople,orders 
+                     where salespeople.snum = orders.snum
+                      group by orders.snum order by sname;
+      
+         mysql>select * from v_sname_count_orders;
+ 
+4) Create a view that shows each salesperson with multiple customers.
+        mysql>create view v_sname_cname 
+                    as 
+                   select sname ,cname from salespeople , customers where salespeople.snum = customers.snum ;
+                   
+        mysql>select * from v_sname_cname;
