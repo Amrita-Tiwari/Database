@@ -1,0 +1,19 @@
+                                                        Assignment-2
+
+1) Which field of the Customers table is the primary key? 
+
+Ans => cnum field of the customers table is primary key.
+
+2) What is the 4th column of the Customers table? 
+  
+Ans => Rating is the 4th column of the customers table.
+
+3) What is another word for row?  For column? 
+
+Ans => row is also called as tuple or Entity or opportunity.
+               column is called as attribut or Method.
+
+4) Why isn’t it possible to see the first five rows of a table
+
+Ans => Row of the table are not stored sequentially of the table are scattered all over the db server HD. when you insert a table whenever the system find free space in DB server it will store the row there .
+whwn you select a table the order of row address, it will always be in assending order of row address.
