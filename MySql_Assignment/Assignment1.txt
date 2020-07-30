@@ -1,0 +1,56 @@
+1. Create the following tables with the given structures and insert sample data as specified: -   
+    
+       mysql>create table salespeople(
+                 snum int(4),
+                 sname varchar(20),
+                 city varchar(20),
+                 comm float(3,2)
+              );
+
+mysql>insert into salespeople values(1001,'peel','london',0.12);
+mysql>insert into salespeople values(1002,'serres','san jos',0.13);
+mysql>insert into salespeople values(1004,'motika','london',0.11);
+mysql>insert into salespeople values(1007,'rifkin','barcelona',0.15);
+mysql>insert into salespeople values(1003,'axelrod','new york',0.10);
+
+mysql>select * from salespeople;
+---------------------------------------------------------------------------------------------------------------------------------------------2. 
+
+    mysql>create table customers(
+              cnum int(4),
+              cname varchar(10), 
+              city varchar(10),
+              rating int(4),
+              snum int(4)
+         );
+mysql>insert into customers values(2001,'hoffman','london',100,1001);
+mysql>insert into customers values(2002,'giovanni','rome',200,1003);
+mysql>insert into customers values(2003,'liu','san jose',200,1002);
+mysql>insert into customers values(2004,'grass','barlin',300,1002);
+mysql>insert into customers values(2006,'clemens','london',100,1001);
+mysql>insert into customers values(2008,'cisneros','san jose',300,1007);
+mysql>insert into customers values(2007,'pereira','rome',100,1004);
+
+mysql>select * from customers;
+
+3.
+
+   mysql>create table orders(
+               onum int(4),
+               amt float(7,2),
+               odate date ,
+               cnum int(4),
+               snum int(4)
+            );
+mysql>insert into orders values(3001,18.69,'1990-10-03',2008,1007);
+mysql>insert into orders values(3003,767.19,'1990-10-03',2001,1001);
+mysql>insert into orders values(3002,1900.10,'1990-10-03',2007,1004);
+mysql>insert into orders values(3005,5160.45,'1990-10-03',2003,1002);
+mysql>insert into orders values(3006,1098.16,'1990-10-03',2008,1007);
+mysql>insert into orders values(3009,1713.23,'1990-10-04',2002,1003);
+mysql>insert into orders values(3007,75.75,'1990-10-04',2004,1002);
+mysql>insert into orders values(3008,4723.00,'1990-10-05',2006,1001);
+mysql>insert into orders values(3010,1309.95,'1990-10-06',2004,1002);
+mysql>insert into orders values(3011,9891.88,'1990-10-06',2006,1001);
+
+mysql>select * from orders;
